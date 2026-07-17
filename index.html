@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Career Recommendation System</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- LEFT SECTION -->
+
+    <div class="left">
+
+        <h1>
+            <i class="fa-solid fa-brain"></i>
+            Smart Career Recommendation
+        </h1>
+
+        <p>
+            Discover your ideal career using Artificial Intelligence
+            based on your technical skills and interests.
+        </p>
+
+        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png"
+        class="hero-image">
+
+    </div>
+
+
+    <!-- RIGHT SECTION -->
+
+    <div class="right">
+
+        <div class="card">
+
+            <h2>Career Prediction Form</h2>
+
+            <form action="/predict" method="POST">
+
+                <label>Python</label>
+
+                <select name="python">
+                    <option value="1">✔ Yes</option>
+                    <option value="0">✖ No</option>
+                </select>
+
+                <label>Java</label>
+
+                <select name="java">
+                    <option value="1">✔ Yes</option>
+                    <option value="0">✖ No</option>
+                </select>
+
+                <label>Web Development</label>
+
+                <select name="web">
+                    <option value="1">✔ Yes</option>
+                    <option value="0">✖ No</option>
+                </select>
+
+                <label>Machine Learning</label>
+
+                <select name="ml">
+                    <option value="1">✔ Yes</option>
+                    <option value="0">✖ No</option>
+                </select>
+
+                <label>Communication Skills</label>
+
+                <select name="communication">
+                    <option value="1">✔ Yes</option>
+                    <option value="0">✖ No</option>
+                </select>
+
+                <label>Problem Solving</label>
+
+                <select name="problem">
+                    <option value="1">✔ Yes</option>
+                    <option value="0">✖ No</option>
+                </select>
+
+                <label>Interest</label>
+
+                <select name="interest">
+
+                    <option>AI</option>
+                    <option>Programming</option>
+                    <option>Development</option>
+                    <option>Data</option>
+                    <option>Cyber</option>
+                    <option>Design</option>
+                    <option>Web</option>
+
+                </select>
+
+                <button type="submit">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    Recommend Career
+                </button>
+
+            </form>
+
+            {% if prediction %}
+
+            <div class="result">
+
+                <h3>
+                    <i class="fa-solid fa-award"></i>
+                    Recommended Career
+                </h3>
+
+                <h2>{{ prediction }}</h2>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
